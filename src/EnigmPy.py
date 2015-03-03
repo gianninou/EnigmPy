@@ -18,7 +18,12 @@ class EnigmPy(object):
 		crypt=""
 		message = message.lower()
 		for c in message:
-			cc=c
+			#rotate rotors
+			for r in reversed(self.rotors):
+				r.rotate()
+				if not r.isTurnover():
+					break
+			
 			#encode letter
 			c=self.plugboard.io(ord(c)-ord('a'))
 			for r in self.rotors:
@@ -31,11 +36,7 @@ class EnigmPy(object):
 			#append encoder letter 
 			crypt+=chr(c+ord('a'))
 
-			#rotate rotors
-			for r in reversed(self.rotors):
-				r.rotate()
-				if not r.isTurnover():
-					break
+			
 		return crypt
 
 	def reset(self):
