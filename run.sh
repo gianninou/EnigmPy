@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python src/EnigmPy.py
+python src/Main.py
