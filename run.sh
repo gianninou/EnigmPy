@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python src/Main.py
+python src/main.py
