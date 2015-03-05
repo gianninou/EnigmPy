@@ -15,14 +15,14 @@ class rotor_view(part_view):
 	    
 	        width2=1
 	        coul='black'
-	        if l==input_io or self.rotor.rotor[l]==input_oi:
+	        if  (l-self. rotor.position)%26 ==input_io or (self.rotor.rotor[l]-self.rotor.position)%26==input_oi:
 	            coul='red'
 	            width2=2
 	        elif not draw_all:
 	            continue
 	        startx = x0+2*gap 
-	        starty = y0+ (((l-self.rotor.position)%26)+1) *(height/27)
+	        starty = y0+ ((( l -self.rotor.position)%26)+1) *(height/27)
 
 	        endx = x0+width-2*gap
-	        endy = y0+(((self.rotor.rotor.index(l)-self.rotor.position)%26)+1)*(height/27)
+	        endy = y0+(((self.rotor.rotor[l]-self.rotor.position)%26)+1)*(height/27)
 	        canvas.create_line(startx,starty,endx,endy,width=width2,fill=coul)

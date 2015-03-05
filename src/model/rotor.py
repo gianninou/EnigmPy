@@ -8,10 +8,10 @@ class Rotor(object):
 
 
 	def io(self,numb):
-		return self.rotor[(numb+self.position)%26]
+		return ((self.rotor[(numb+self.position)%26])-self.position)%26
 
 	def oi(self,numb):
-		return (self.rotor.index(numb)-self.position)%26
+		return (self.rotor.index((numb+self.position)%26)-self.position)%26
 
 	def rotate(self):
 		self.position = (self.position+1)%26

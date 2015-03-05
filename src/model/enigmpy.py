@@ -25,17 +25,32 @@ class EnigmPy(object):
 					break
 			
 			#encode letter
-			c=self.plugboard.io(ord(c)-ord('a'))
-			for r in self.rotors:
-				c=r.io(c)
-			c=self.reflector.io(c)
-			for r in reversed(self.rotors):
-				c=r.oi(c)
-			c=self.plugboard.oi(c)
-			
+			cl=self.get_courant(c,all=False)
 			#append encoder letter 
-			crypt+=chr(c+ord('a'))
+			crypt+=chr(cl+ord('a'))
+		return crypt
 
+	def get_courant(self,letter,all=False):
+		res=[]
+		c=ord(letter)-ord('a')
+		res.append(ord(letter)-ord('a'))
+		c=self.plugboard.io(c)
+		res.append(c)
+		for r in self.rotors:
+			c=r.io(c)
+			res.append(c)
+		c=self.reflector.io(c)
+		res.append(c)
+		for r in reversed(self.rotors):
+			c=r.oi(c)
+			res.append(c)
+		c=self.plugboard.oi(c)
+		res.append(c)
+
+		if all:
+			return res
+		else:
+			return res[-1]
 			
 		return crypt
 
