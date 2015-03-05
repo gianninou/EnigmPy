@@ -21,15 +21,19 @@ class enigmpy_view(object):
 		for r in enigmpy.rotors:
 			self.rotors_view.append(rotor_view(r))
 
-	def draw(self,letter="a"):
+	def draw(self,letter="a",x0=50,y0=50):
 		draw_all=False
+		gap=10
 		state = self.enigmpy.get_courant(letter=letter, all=True)
-		print state
-		self.plugboard_view.draw(canvas=self.canvas,x0=60,y0=100,width=100,height=500,input_io=state[0],input_oi=state[8],draw_all=draw_all)
-		self.rotors_view[0].draw(canvas=self.canvas,x0=180,y0=100,width=100,height=500,input_io=state[1],input_oi=state[7],draw_all=draw_all)
-		self.rotors_view[1].draw(canvas=self.canvas,x0=300,y0=100,width=100,height=500,input_io=state[2],input_oi=state[6],draw_all=draw_all)
-		self.rotors_view[2].draw(canvas=self.canvas,x0=420,y0=100,width=100,height=500,input_io=state[3],input_oi=state[5],draw_all=draw_all)
-		self.reflector_view.draw(canvas=self.canvas,x0=540,y0=100,width=160,height=500,input=state[4],draw_all=draw_all)
+
+		self.plugboard_view.draw(canvas=self.canvas,x0=x0,y0=y0,width=100,height=500,input_io=state[0],input_oi=state[8],draw_all=draw_all)
+		
+		xi=x0+100+gap
+		for i in range(len(self.rotors_view)):
+			self.rotors_view[i].draw(canvas=self.canvas,x0=xi,y0=y0,width=130,height=500,input_io=state[i+1],input_oi=state[-2-i],draw_all=draw_all)
+			xi=xi+130+gap
+
+		self.reflector_view.draw(canvas=self.canvas,x0=xi,y0=y0,width=160,height=500,input=state[4],draw_all=draw_all)
 		
 	def repaint(self):
 		self.canvas.delete("all")
