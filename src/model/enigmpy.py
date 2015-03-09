@@ -1,7 +1,7 @@
-from rotor import *
-from plugboard import *
-from reflector import *
-from box import *
+from model.rotor import *
+from model.plugboard import *
+from model.reflector import *
+from model.box import *
 
 class EnigmPy(object):
 	

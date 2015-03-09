@@ -2,18 +2,18 @@ from model.enigmpy import *
 
 enigma = EnigmPy()
 
-print "Welcome to the EnigmPy Machine"
-choise = raw_input("1 : Encryption\n2 : decryption\n")
+print ("Welcome to the EnigmPy Machine")
+choice = input("1 : Encryption\n2 : Decryption\n")
 
-if choise=="1":
-	text = raw_input("Enter your plaintext :\n")
+if choice=="1":
+	text = input("Enter your plaintext :\n")
 	ciphertext = enigma.crypt(text)
-	print "The ciphertext is : "+ciphertext
+	print ("The ciphertext is : "+ciphertext)
 
-elif choise=="2":
-	text = raw_input("Enter your ciphertext :\n")
+elif choice=="2":
+	text = input("Enter your ciphertext :\n")
 	plaintext = enigma.crypt(text)
-	print "The plaintext is : "+plaintext
+	print ("The plaintext is : "+plaintext)
 
 else:
-	print "Choose the good choice !"
+	print ("Choose the good choice !")

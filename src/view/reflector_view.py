@@ -1,5 +1,4 @@
-from part_view import *
-from sets import Set
+from view.part_view import *
 
 class reflector_view(part_view):
 
@@ -10,7 +9,7 @@ class reflector_view(part_view):
 		self.draw_box(canvas,x0,y0,width,height)
 
 		gap=10
-		drawed = Set()
+		drawed = set()
 		for r in range(len(self.reflector.reflector)):
 			canvas.create_text(x0+gap,        y0+(r+1)*(height/27),text=chr(r+ord('a')))
 		

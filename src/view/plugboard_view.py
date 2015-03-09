@@ -1,4 +1,4 @@
-from part_view import *
+from view.part_view import *
 
 class plugboard_view(part_view):
 

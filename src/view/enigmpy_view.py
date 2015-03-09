@@ -1,8 +1,8 @@
-from plugboard_view import *
-from reflector_view import *
-from rotor_view import *
+from view.plugboard_view import *
+from view.reflector_view import *
+from view.rotor_view import *
 
-from Tkinter import *
+from tkinter import *
 
 class enigmpy_view(object):
 

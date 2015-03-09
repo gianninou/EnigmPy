@@ -1,6 +1,6 @@
-from rotor import *
-from plugboard import *
-from reflector import *
+from model.rotor import *
+from model.plugboard import *
+from model.reflector import *
 
 #
 #	This class is a box with part of Enigma machine
