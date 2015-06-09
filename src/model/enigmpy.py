@@ -7,7 +7,13 @@ class EnigmPy(object):
 	
 	def __init__(self):
 		#def rotors
-		self.rotors=[Box.getRotorI(),Box.getRotorII(),Box.getRotorIII()]
+		rotor1 = Box.getRotorI()
+		rotor1.position=21
+		rotor2 = Box.getRotorIII()
+		rotor1.position=21
+		rotor3 = Box.getRotorIII()
+		rotor1.position=9
+		self.rotors=[rotor1,rotor2,rotor3]
 		#def plugboard
 		self.plugboard=Box.getPlugboard()
 		#def Reflector
